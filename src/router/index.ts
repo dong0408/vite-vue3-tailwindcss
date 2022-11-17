@@ -21,26 +21,26 @@ const routes: Array<RouteRecordRaw> = [
         },
         component: () => import('@/pages/index.vue')
     },
-    {
-        path: '/vueUse',
-        name: 'VueUse',
-        meta: {
-            title: 'vueUse demo',
-            keepAlive: true,
-            requireAuth: true
-        },
-        component: () => import('@/pages/vueUse.vue')
-    },
-    {
-        path: '/request',
-        name: 'RequestPage',
-        meta: {
-            title: 'request demo',
-            keepAlive: true,
-            requireAuth: true
-        },
-        component: () => import('@/pages/request.vue')
-    }
+    // {
+    //     path: '/vueUse',
+    //     name: 'VueUse',
+    //     meta: {
+    //         title: 'vueUse demo',
+    //         keepAlive: true,
+    //         requireAuth: true
+    //     },
+    //     component: () => import('@/pages/vueUse.vue')
+    // },
+    // {
+    //     path: '/request',
+    //     name: 'RequestPage',
+    //     meta: {
+    //         title: 'request demo',
+    //         keepAlive: true,
+    //         requireAuth: true
+    //     },
+    //     component: () => import('@/pages/request.vue')
+    // }
 ];
 
 const router = createRouter({
