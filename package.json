@@ -4,13 +4,16 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port 8089",
     "build": "vue-tsc && vite build",
     "preview": "vite preview ",
-    "serve": "vite"
+    "serve": "vite --port 8089"
   },
   "dependencies": {
+    "@vueuse/core": "^9.5.0",
     "pinia": "^2.0.23",
+    "sass": "^1.56.1",
+    "sass-loader": "^13.2.0",
     "vue": "^3.2.41",
     "vue-router": "^4.1.6"
   },

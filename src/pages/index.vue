@@ -1,5 +1,5 @@
 <template>
-    <img alt="Vue logo" src="./../assets/logo.png" />
+    <img alt="Vue logo" src="@/assets/one piece.jpg"  class="img"/>
     <UsePinia />
     <br />
     <router-link to="/login">点击跳转至login</router-link>
@@ -19,3 +19,10 @@
         }
     });
 </script>
+
+<style lang="scss" scoped>
+.img{
+    width: 100px;
+    height: 100px;
+}
+</style>

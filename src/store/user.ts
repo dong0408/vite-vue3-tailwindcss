@@ -13,3 +13,9 @@ export const useUserStore = defineStore({
         }
     }
 });
+
+// export const useCountStore = defineStore({
+//     state:()=>{
+//       return {count:0 }
+//     }
+// })
