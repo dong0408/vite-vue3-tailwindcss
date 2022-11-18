@@ -1,5 +1,5 @@
 <template>
-    <h2> 这里是登录页面 </h2>
+    <h2 > 这里是登录页面 </h2>
     <br />
     <router-link to="/">点击跳转至首页</router-link>
     <br /><br />

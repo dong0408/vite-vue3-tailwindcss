@@ -9,7 +9,7 @@ export default defineConfig({
         alias: {
             '@': path.resolve(__dirname, 'src')
         }
-    },
+    }, 
     plugins: [vue()],
     server: {
         // port: 8080, //启动端口
