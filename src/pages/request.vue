@@ -16,11 +16,11 @@
                     url: '/api/xxx',
                     method: 'get'
                 });
-                console.log(result);
+                console.log(result,'dsc');
             };
             const requestResAPI = async () => {
                 let result = await API.login('zhangsan', '123456');
-                console.log(result);
+                console.log(result,'ss');
             };
             return {
                 requestRes,
