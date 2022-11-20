@@ -1,5 +1,5 @@
 <template>
-    <img alt="Vue logo" src="@/assets/one piece.jpg"  class="img"/>
+    <img alt="Vue logo" src=""  class="img"/>
     <UsePinia />
     <br />
     <router-link to="/login">点击跳转至login</router-link>

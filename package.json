@@ -2,10 +2,9 @@
   "name": "vue3-tailwindcss",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite --port 8089",
-    "build": "vue-tsc && vite build",
+    "build":"vue-tsc --noEmit --skipLibCheck && vite build",
     "preview": "vite preview ",
     "serve": "vite --port 8089",
     "eslint:comment": "使用 ESLint 检查并自动修复 src 目录下所有扩展名为 .js 和 .vue 的文件",
