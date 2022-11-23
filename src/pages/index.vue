@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent } from 'vue'   
 // import UsePinia from '@/components/UsePinia.vue';
 import background from '@/components/background.vue'
 import Login from '@/pages/login/index.vue'

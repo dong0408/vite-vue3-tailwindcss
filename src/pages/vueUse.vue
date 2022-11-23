@@ -30,7 +30,6 @@
 
 <script lang="ts" setup>
 import { ref,reactive } from "vue";
-import { defineComponent } from "vue";
 import { reactify, useMouse, useMouseInElement } from "@vueuse/core";
 import { computed } from "@vue/reactivity";
 // import { stringify } from '@vueuse/docs-utils'
