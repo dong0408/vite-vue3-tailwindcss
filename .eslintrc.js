@@ -18,7 +18,10 @@ module.exports = {
     ],
 
     rules: {
-        // override/add rules settings here, such as:
+        indent: ['error', 4, { SwitchCase: 1 }],
+        'no-unused-vars': 'warn',
+        'vue/no-unused-components': 'warn',
+        'no-debugger': 'off',
     }
 };
 
