@@ -1,23 +1,26 @@
 <template>
-    <UsePinia />
-    <background>
-        <div class="container">
-            <Login />
-        </div>
-    </background>
-    <br />
+  <UsePinia />
+  <background>
+    <div class="container">
+      <Login />
+      <Header />
+    </div>
+  </background>
+  <br />
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'   
+import { defineComponent } from 'vue'
 // import UsePinia from '@/components/UsePinia.vue';
 import background from '@/components/background.vue'
 import Login from '@/pages/login/index.vue'
+import Header from '@/components/header.vue'
 export default defineComponent({
     name: 'IndexPage',
     components: {
         Login,
         background,
+        Header,
     },
 })
 </script>
