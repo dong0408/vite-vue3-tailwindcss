@@ -39,7 +39,7 @@ const input=ref('')
 }
 .right{
   display: flex;
-} 
+}  
 .left{
   display: flex;
 }
