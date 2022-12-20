@@ -13,10 +13,10 @@ const service =axios.create({
  // Request interceptors
 service.interceptors.request.use(
     (config: AxiosRequestConfig)=>{
-        // let {token}=
-        // if(token){
-        //     config.headers.Authorization=`Bearer ${token}`
-        // }
+        let {token}=
+        if(token){
+            config.headers.Authorization=`Bearer ${token}`
+        }
       return config;
     },
     (error:any)=>{

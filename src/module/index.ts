@@ -14,13 +14,18 @@ interface ILogin {
     token: string;
     expires: number;
 }
-export const login = (username: string, password: string) => {
+export const login = (phone: number, password: string) => {
     return request<IResponseType<ILogin>>({
         url: '/api/auth/login',
         method: 'post',
         data: {
-            username,
+            phone,
             password
         }
     });
 };
+
+
+export const apiLogin={
+    url:''
+}

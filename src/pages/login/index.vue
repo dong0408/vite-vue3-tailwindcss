@@ -76,9 +76,7 @@ const submitForm = (formEl: FormInstance | undefined) => {
     if (!formEl) return
     formEl.validate(valid => {
         if (valid) {
-            console.log(VUE_APP_BASE_API,'12');
-            
-            // console.log('submit!')
+           
             router.push('/home')
         } else {
             console.log('error submit!')
