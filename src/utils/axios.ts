@@ -1,4 +1,5 @@
-import { rejects } from "assert";
+import { AccessToken, LangKey, ResponseCode } from '../config'
+
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 import { Message } from "element-plus";
 import { resolve } from "path";
@@ -8,7 +9,7 @@ const baseURL = process.env.VITE_APP_BASE_API
 
 // Request interceptors
 const createService = (option: any) => {
-    const service = axios.create()
+    const service = axios.create({baseURL})
     service.interceptors.request.use(
         (config: AxiosRequestConfig) => {
             if (option) {
@@ -48,7 +49,7 @@ const createConfig = (config: any, data: Object) => {
 
 }
 
-const service = createService()
+const service = createService(Option)
 
 export default function request(config: any, data: Object) {
     const { muted = false } = config
@@ -56,7 +57,7 @@ export default function request(config: any, data: Object) {
     // const {$store}
     return new Promise((resolve, rejects) => {
         const defaultMsg = '出错了'
-        service(options).then(response => {
+        service(option).then(response => {
             const { code, msg = defaultMsg } = response.data
             if (code !== ResponseCode.OK) {
 
