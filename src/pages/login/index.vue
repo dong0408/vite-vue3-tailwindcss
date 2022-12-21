@@ -21,10 +21,13 @@
 <script lang="ts" setup>
 import { reactive, ref } from 'vue'
 import type { FormInstance } from 'element-plus'
-import {useRouter} from 'vue-router'
-
+import { useRoute, useRouter } from 'vue-router'
+import { loginByPassword } from '@/api/Login'
+import { useUserStore } from '@/store/user'
 const ruleFormRef = ref<FormInstance>()
-
+const store = useUserStore()
+const router = useRouter()
+const route = useRoute()
 const checkAge = (rule: any, value: any, callback: any) => {
     if (!value) {
         return callback(new Error('Please input the age'))
@@ -71,13 +74,16 @@ const rules = reactive({
     phone: [{ validator: validatePass2, trigger: 'blur' }],
     pass: [{ validator: validatePass, trigger: 'blur' }],
 })
-const router=useRouter()
 const submitForm = (formEl: FormInstance | undefined) => {
+    const { phone, pass } = ruleForm
+
     if (!formEl) return
-    formEl.validate(valid => {
+    formEl.validate(async valid => {
         if (valid) {
-           
-            router.push('/home')
+            const res = await loginByPassword(phone, pass)
+            store.setUser(res.data)
+
+            router.replace((route.query.returnUrl as string) || '/home')
         } else {
             console.log('error submit!')
             return false
@@ -89,7 +95,6 @@ const resetForm = (formEl: FormInstance | undefined) => {
     if (!formEl) return
     formEl.resetFields()
 }
-console.log(import.meta.env.VITE_APP_BASE_API);
 </script>
 
 <style lang="scss" scoped>

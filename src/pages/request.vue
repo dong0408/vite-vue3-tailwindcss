@@ -6,7 +6,7 @@
 </template>
 <script lang="ts">
     import { defineComponent } from 'vue';
-    import request from '@/utils/axios';
+    import request from '@/utils/request';
     import API from '@/api';
     export default defineComponent({
         name: 'RequestPage',

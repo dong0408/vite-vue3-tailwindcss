@@ -1,7 +1,7 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 // import store from './store';
-import store from './store/idnex'
+import store from './store'
 import router from './router';
 // import "tailwindcss/tailwind.css"
 import '@/assets/styles/app.scss';
