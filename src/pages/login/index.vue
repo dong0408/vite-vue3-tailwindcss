@@ -1,29 +1,33 @@
 <template>
-    <div class="login">
-        <div class="tip">
-            <p>嘿!</p>
-            <p>赶紧登陆吧!</p>
+    <Background>
+        <div class="login">
+            <div class="tip">
+                <p>嘿!</p>
+                <p>赶紧登陆吧!</p>
+            </div>
+            <el-form ref="ruleFormRef" :model="ruleForm" status-icon :rules="rules" class="demo-ruleForm">
+                <el-form-item prop="phone">
+                    <el-input v-model="ruleForm.phone" type="phone" autocomplete="off" placeholder="手机号" style="height: 40px" />
+                </el-form-item>
+                <el-form-item prop="pass">
+                    <el-input v-model="ruleForm.pass" type="password" autocomplete="off" placeholder="密码" style="height: 40px" />
+                </el-form-item>
+                <el-form-item>
+                    <el-button type="primary" @click="submitForm(ruleFormRef)">登录</el-button>
+                </el-form-item>
+            </el-form>
         </div>
-        <el-form ref="ruleFormRef" :model="ruleForm" status-icon :rules="rules" class="demo-ruleForm">
-            <el-form-item prop="phone">
-                <el-input v-model="ruleForm.phone" type="phone" autocomplete="off" placeholder="手机号" style="height: 40px" />
-            </el-form-item>
-            <el-form-item prop="pass">
-                <el-input v-model="ruleForm.pass" type="password" autocomplete="off" placeholder="密码" style="height: 40px" />
-            </el-form-item>
-            <el-form-item>
-                <el-button type="primary" @click="submitForm(ruleFormRef)">登录</el-button>
-            </el-form-item>
-        </el-form>
-    </div>
+    </Background>
 </template>
 
 <script lang="ts" setup>
 import { reactive, ref } from 'vue'
-import type { FormInstance } from 'element-plus'
+import type { FormInstance, ElMessage } from 'element-plus'
 import { useRoute, useRouter } from 'vue-router'
 import { loginByPassword } from '@/api/Login'
 import { useUserStore } from '@/store/user'
+import Background from '@/components/background.vue'
+
 const ruleFormRef = ref<FormInstance>()
 
 const store = useUserStore()
@@ -83,6 +87,14 @@ const submitForm = (formEl: FormInstance | undefined) => {
         if (valid) {
             const res = await loginByPassword(phone, pass)
             store.setUser(res.data)
+            console.log(res, 'dd')
+
+            if (res.code == 10000) {
+                ElMessage({
+                    message: '登录成功',
+                    type: 'success',
+                })
+            }
 
             router.replace((route.query.returnUrl as string) || '/home')
         } else {

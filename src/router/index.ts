@@ -1,6 +1,11 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
+import { useUserStore } from '@/store'
 
-
+NProgress.configure({
+    showSpinner: false,
+})
 const routes: Array<RouteRecordRaw> = [
     {
         path: '/login',
@@ -8,9 +13,9 @@ const routes: Array<RouteRecordRaw> = [
         meta: {
             title: '登录',
             keepAlive: true,
-            requireAuth: false
+            requireAuth: false,
         },
-        component: () => import('../pages/login/index.vue')
+        component: () => import('../pages/login/index.vue'),
     },
     {
         path: '/',
@@ -18,19 +23,19 @@ const routes: Array<RouteRecordRaw> = [
         meta: {
             title: '首页',
             keepAlive: true,
-            requireAuth: true
+            requireAuth: true,
         },
-        component: () => import('@/pages/index.vue')
+        component: () => import('@/pages/index.vue'),
     },
     {
-        path:'/home',
-        name:'homePage',
-        meta:{
-            title:'主页',
-            keepAlive:true,
-            requireAuth:true,
+        path: '/home',
+        name: 'homePage',
+        meta: {
+            title: '主页',
+            keepAlive: true,
+            requireAuth: true,
         },
-        component:()=>import('@/pages/main/index.vue')
+        component: () => import('@/pages/main/index.vue'),
     },
     {
         path: '/vueUse',
@@ -38,9 +43,9 @@ const routes: Array<RouteRecordRaw> = [
         meta: {
             title: 'vueUse demo',
             keepAlive: true,
-            requireAuth: true
+            requireAuth: true,
         },
-        component: () => import('@/pages/vueUse.vue')
+        component: () => import('@/pages/vueUse.vue'),
     },
     {
         path: '/request',
@@ -48,14 +53,27 @@ const routes: Array<RouteRecordRaw> = [
         meta: {
             title: 'request demo',
             keepAlive: true,
-            requireAuth: true
+            requireAuth: true,
         },
-        component: () => import('@/pages/request.vue')
-    }
-];
+        component: () => import('@/pages/request.vue'),
+    },
+]
 
 const router = createRouter({
     history: createWebHistory(),
-    routes
-});
-export default router;
+    routes,
+})
+
+router.beforeEach(to => {
+    NProgress.start()
+    const store = useUserStore()
+    const whiteList = ['/login']
+    if (!store.user?.token && !whiteList.includes(to.path)) {
+        return './login'
+    }
+})
+
+router.afterEach(to => {
+    NProgress.done()
+})
+export default router

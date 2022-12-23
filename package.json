@@ -27,6 +27,7 @@
     "filemanager-webpack-plugin": "^8.0.0",
     "js-cookie": "^3.0.1",
     "lodash-es": "^4.17.21",
+    "nprogress": "^0.2.0",
     "pinia": "^2.0.23",
     "pinia-plugin-persistedstate": "^3.0.1",
     "qs": "^6.11.0",
@@ -36,12 +37,12 @@
     "vue-router": "4.0.10"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.2.0",
-    "@commitlint/config-conventional": "^17.2.0",
+    "@commitlint/cli": "^17.3.0",
+    "@commitlint/config-conventional": "^17.3.0",
     "@types/node": "^18.11.9",
     "@vitejs/plugin-vue": "^3.2.0",
     "autoprefixer": "^10.4.13",
-    "commitizen": "^4.2.5",
+    "commitizen": "^4.2.6",
     "commitlint-config-cz": "^0.13.3",
     "consola": "^2.15.3",
     "cz-conventional-changelog": "^3.3.0",
