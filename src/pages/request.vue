@@ -2,30 +2,30 @@
     <h2> 这里是request请求页面 </h2>
     <br />
     <router-link to="/">点击跳转至首页</router-link>
-    <button @click="requestRes()"></button>
+    <button ></button>
 </template>
 <script lang="ts">
     import { defineComponent } from 'vue';
-    import request from '@/utils/request';
+    // import request from '@/utils/request';
     import API from '@/api';
-    export default defineComponent({
-        name: 'RequestPage',
-        setup() {
-            const requestRes = async () => {
-                let result = await request({
-                    url: '/api/xxx',
-                    method: 'get'
-                });
-                console.log(result,'dsc');
-            };
-            const requestResAPI = async () => {
-                let result = await API.login('zhangsan', '123456');
-                console.log(result,'ss');
-            };
-            return {
-                requestRes,
-                requestResAPI
-            };
-        }
-    });
+    // export default defineComponent({
+    //     name: 'RequestPage',
+    //     setup() {
+    //         const requestRes = async () => {
+    //             let result = await request({
+    //                 url: '/api/xxx',
+    //                 method: 'get'
+    //             });
+    //             console.log(result,'dsc');
+    //         };
+    //         const requestResAPI = async () => {
+    //             let result = await API.login('zhangsan', '123456');
+    //             console.log(result,'ss');
+    //         };
+    //         return {
+    //             requestRes,
+    //             requestResAPI
+    //         };
+    //     }
+    // });
 </script>

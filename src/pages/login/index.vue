@@ -25,6 +25,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { loginByPassword } from '@/api/Login'
 import { useUserStore } from '@/store/user'
 const ruleFormRef = ref<FormInstance>()
+
 const store = useUserStore()
 const router = useRouter()
 const route = useRoute()
